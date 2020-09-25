@@ -1,3 +1,4 @@
-auth-info:
-  - uri: ''
-    auth: ''
+app:
+  auth-list:
+    - uri: '/user'
+      auth: 'admin'

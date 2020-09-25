@@ -37,3 +37,8 @@ spring:
         max-idle: 5
         min-idle: 1
     timeout: 10s
+
+app:
+  auth-list:
+    - uri: '/user'
+      auth: 'admin'
