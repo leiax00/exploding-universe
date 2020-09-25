@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="1 seconds">
+
+    <contextName>logback</contextName>
+
+    <springProperty scope="context" name="log.path" source="logging.file.path"/>
+    <springProperty scope="context" name="app.name" source="app.name"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%15t] %logger{39} : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <!--定义日志输出的路径-->
+<!--        <file>${log.path}/logs/${app.name}.log</file>-->
+        <!--定义日志滚动的策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--定义文件滚动时的文件名的格式-->
+            <fileNamePattern>${log.path}/logs/${app.name}-%d{yyyy-MM-dd}-[%i].log</fileNamePattern>
+            <!--60天的时间周期，日志量最大20GB-->
+            <maxHistory>30</maxHistory>
+            <maxFileSize>4MB</maxFileSize>
+            <!-- 该属性在 1.1.6版本后 才开始支持-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+<!--        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+<!--            &lt;!&ndash;每个日志文件最大100MB&ndash;&gt;-->
+<!--            <maxFileSize>4MB</maxFileSize>-->
+<!--        </triggeringPolicy>-->
+        <!--定义输出格式-->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%15t] %logger{39} : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+<!--        <appender-ref ref="console" />-->
+        <appender-ref ref="file" />
+    </root>
+
+    <logger name="com.example.logback" level="warn" />
+
+</configuration>

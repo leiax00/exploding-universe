@@ -13,6 +13,7 @@
 
     <modules>
         <module>universe-owner</module>
+        <module>universe-core-common</module>
     </modules>
 
     <dependencyManagement>
