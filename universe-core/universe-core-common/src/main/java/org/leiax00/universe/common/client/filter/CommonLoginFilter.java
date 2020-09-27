@@ -1,8 +1,8 @@
-package client.filter;
+package org.leiax00.universe.common.client.filter;
 
-import bean.bo.SimpleUser;
-import bean.common.ResultCode;
-import bean.dto.ResponseRst;
+import org.leiax00.universe.common.bean.bo.SimpleUser;
+import org.leiax00.universe.common.bean.common.ResultCode;
+import org.leiax00.universe.common.bean.dto.ResponseRst;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.HttpMethod;
@@ -19,7 +19,6 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 

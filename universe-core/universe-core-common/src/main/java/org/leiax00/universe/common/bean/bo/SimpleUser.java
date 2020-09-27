@@ -1,4 +1,4 @@
-package bean.bo;
+package org.leiax00.universe.common.bean.bo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package client.filter;
+package org.leiax00.universe.common.client.filter;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;

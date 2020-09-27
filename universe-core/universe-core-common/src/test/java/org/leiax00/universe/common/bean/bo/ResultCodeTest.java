@@ -1,7 +1,7 @@
-package bean.bo;
+package org.leiax00.universe.common.bean.bo;
 
 
-import bean.common.ResultCode;
+import org.leiax00.universe.common.bean.common.ResultCode;
 import org.junit.jupiter.api.Test;
 
 class ResultCodeTest {

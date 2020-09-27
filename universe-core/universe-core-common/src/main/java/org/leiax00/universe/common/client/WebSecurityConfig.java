@@ -1,16 +1,18 @@
-package client;
+package org.leiax00.universe.common.client;
 
-import bean.common.CommonConst;
-import bean.common.ResultCode;
-import bean.bo.UriAuth;
-import bean.dto.ResponseRst;
-import client.filter.CommonLoginFilter;
-import client.filter.CommonLogoutHandler;
+import org.leiax00.universe.common.bean.common.CommonConst;
+import org.leiax00.universe.common.bean.common.ResultCode;
+import org.leiax00.universe.common.bean.bo.UriAuth;
+import org.leiax00.universe.common.bean.dto.ResponseRst;
+import org.leiax00.universe.common.client.filter.CommonLoginFilter;
+import org.leiax00.universe.common.client.filter.CommonLogoutHandler;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -32,6 +34,8 @@ import java.io.IOException;
 @Configuration
 @EnableConfigurationProperties({UriAuth.class})
 @ConditionalOnClass(UriAuth.class)
+@ComponentScan("org.leiax00.universe.common.spring")
+@MapperScan("org.leiax00.universe.common.spring.mapper")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UriAuth uriAuth;
     private final UserDetailsService userDetailsService;

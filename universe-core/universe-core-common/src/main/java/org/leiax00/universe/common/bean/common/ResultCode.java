@@ -1,4 +1,4 @@
-package bean.common;
+package org.leiax00.universe.common.bean.common;
 
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
