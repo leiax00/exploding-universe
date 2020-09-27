@@ -4,6 +4,7 @@ import org.leiax00.universe.common.bean.common.CommonConst;
 import org.leiax00.universe.common.bean.common.ResultCode;
 import org.leiax00.universe.common.bean.bo.UriAuth;
 import org.leiax00.universe.common.bean.dto.ResponseRst;
+import org.leiax00.universe.common.client.filter.BasicAuthFilter;
 import org.leiax00.universe.common.client.filter.CommonLoginFilter;
 import org.leiax00.universe.common.client.filter.CommonLogoutHandler;
 import com.alibaba.fastjson.JSON;
@@ -56,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         ;
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests = http.authorizeRequests();
         uriAuth.getAuthList().forEach(item -> {
-            if (CommonConst.SYMBOL_PUBLIC.equals(item.getAuth().toLowerCase())) {
+            if (CommonConst.SYMBOL_PUBLIC.equals(item.getAuth().toUpperCase())) {
                 authorizeRequests.antMatchers(item.getUri()).permitAll();
             } else {
                 authorizeRequests.antMatchers(item.getUri()).hasAuthority(item.getAuth());
@@ -66,6 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout().logoutUrl("/**/logout").addLogoutHandler(new CommonLogoutHandler())
         .and()
         .addFilter(new CommonLoginFilter(authenticationManager()))
+        .addFilter(new BasicAuthFilter(authenticationManager()))
         ;
     }
 

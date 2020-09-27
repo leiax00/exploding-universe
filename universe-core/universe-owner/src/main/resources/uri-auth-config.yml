@@ -1,4 +1,4 @@
 app:
   auth-list:
-    - uri: '/user'
-      auth: 'admin'
+    - uri: '/user/**'
+      auth: 'public'
