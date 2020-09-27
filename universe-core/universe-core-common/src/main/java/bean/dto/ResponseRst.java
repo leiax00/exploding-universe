@@ -1,6 +1,6 @@
 package bean.dto;
 
-import bean.bo.ResultCode;
+import bean.common.ResultCode;
 import lombok.Builder;
 import lombok.Data;
 

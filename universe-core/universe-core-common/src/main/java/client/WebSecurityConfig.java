@@ -1,6 +1,11 @@
-import bean.bo.ResultCode;
+package client;
+
+import bean.common.CommonConst;
+import bean.common.ResultCode;
 import bean.bo.UriAuth;
 import bean.dto.ResponseRst;
+import client.filter.CommonLoginFilter;
+import client.filter.CommonLogoutHandler;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -12,8 +17,10 @@ import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -27,29 +34,40 @@ import java.io.IOException;
 @ConditionalOnClass(UriAuth.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UriAuth uriAuth;
+    private final UserDetailsService userDetailsService;
 
-    public WebSecurityConfig(UriAuth uriAuth) {
+    public WebSecurityConfig(UriAuth uriAuth, UserDetailsService userDetailsService) {
         this.uriAuth = uriAuth;
+        this.userDetailsService = userDetailsService;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        log.info("authList" + uriAuth);
         http.exceptionHandling().authenticationEntryPoint(new UnauthorizedEntryPoint())
                 .and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
                 .httpBasic()
+        ;
+        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests = http.authorizeRequests();
+        uriAuth.getAuthList().forEach(item -> {
+            if (CommonConst.SYMBOL_PUBLIC.equals(item.getAuth().toLowerCase())) {
+                authorizeRequests.antMatchers(item.getUri()).permitAll();
+            } else {
+                authorizeRequests.antMatchers(item.getUri()).hasAuthority(item.getAuth());
+            }
+        });
+        authorizeRequests.anyRequest().authenticated();
+        http.logout().logoutUrl("/**/logout").addLogoutHandler(new CommonLogoutHandler())
+        .and()
+        .addFilter(new CommonLoginFilter(authenticationManager()))
         ;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Bean

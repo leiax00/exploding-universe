@@ -1,6 +1,7 @@
 package bean.bo;
 
 
+import bean.common.ResultCode;
 import org.junit.jupiter.api.Test;
 
 class ResultCodeTest {

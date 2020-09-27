@@ -1,4 +1,4 @@
-package bean.bo;
+package bean.common;
 
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
@@ -6,8 +6,9 @@ import org.apache.commons.lang3.StringUtils;
 @Getter
 public enum ResultCode {
     STATUS_SUCCESS(1000, "STATUS_SUCCESS"),
-    STATUS_FAILED(1050, "STATUS_FAILED"),
-    STATUS_UNAUTHORIZED(1051, "STATUS_UNAUTHORIZED"),
+    STATUS_FAILED(1500, "STATUS_FAILED"),
+    STATUS_UNAUTHORIZED(1501, "STATUS_UNAUTHORIZED"),
+    STATUS_INVALID_AUTH_INFO(1502, "INVALID_AUTH_INFO"),
     ;
 
     private final int code;

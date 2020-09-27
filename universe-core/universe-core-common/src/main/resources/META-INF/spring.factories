@@ -1,2 +1,2 @@
-org.springframework.boot.env.EnvironmentPostProcessor=AuthEnvironmentPostProcessor
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=WebSecurityConfig
+org.springframework.boot.env.EnvironmentPostProcessor=client.AuthEnvironmentPostProcessor
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=client.WebSecurityConfig
