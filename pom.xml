@@ -10,9 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>universe-api</module>
         <module>universe-view</module>
-        <module>universe-deploy</module>
         <module>universe-core</module>
+        <module>universe-deploy</module>
     </modules>
 
     <properties>
