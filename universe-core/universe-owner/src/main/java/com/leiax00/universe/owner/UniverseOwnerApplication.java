@@ -1,4 +1,4 @@
-package com.leiax00.universeowner;
+package com.leiax00.universe.owner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

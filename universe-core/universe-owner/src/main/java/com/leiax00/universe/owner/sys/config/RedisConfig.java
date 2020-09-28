@@ -1,4 +1,4 @@
-package com.leiax00.universeowner.sys.config;
+package com.leiax00.universe.owner.sys.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

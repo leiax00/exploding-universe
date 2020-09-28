@@ -1,4 +1,4 @@
-package com.leiax00.universeowner.sys;
+package com.leiax00.universe.owner.sys;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,4 @@
-package com.leiax00.universeowner.mapper;
+package com.leiax00.universe.owner.mapper;
 
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
