@@ -1,2 +1,0 @@
-org.springframework.boot.env.EnvironmentPostProcessor=org.leiax00.universe.common.client.AuthEnvironmentPostProcessor
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.leiax00.universe.common.client.WebSecurityConfig

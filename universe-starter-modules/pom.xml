@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>universe-api</artifactId>
-    <packaging>pom</packaging>
-
+    <artifactId>universe-starter-modules</artifactId>
     <modules>
-        <module>universe-owner-api</module>
+        <module>universe-common</module>
+        <module>universe-owner-client</module>
     </modules>
+
 </project>

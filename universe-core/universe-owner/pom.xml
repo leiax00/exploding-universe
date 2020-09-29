@@ -12,11 +12,6 @@
     <dependencies>
         <dependency>
             <groupId>org.leiax00</groupId>
-            <artifactId>universe-core-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.leiax00</groupId>
             <artifactId>universe-owner-api</artifactId>
             <version>${project.version}</version>
         </dependency>

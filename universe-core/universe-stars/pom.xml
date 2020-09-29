@@ -12,10 +12,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.leiax00</groupId>
             <artifactId>universe-core-common</artifactId>
             <version>${project.version}</version>
