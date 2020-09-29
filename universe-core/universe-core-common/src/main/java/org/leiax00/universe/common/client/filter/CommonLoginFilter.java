@@ -62,7 +62,7 @@ public class CommonLoginFilter extends UsernamePasswordAuthenticationFilter {
         response.setStatus(HttpStatus.OK.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         JSONObject.writeJSONString(response.getWriter(), ResponseRst.builder()
-                .build().withData(failed).withError(ResultCode.STATUS_INVALID_AUTH_INFO)
+                .build().withData(failed.getMessage()).withError(ResultCode.STATUS_INVALID_AUTH_INFO)
         );
     }
 }

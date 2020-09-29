@@ -2,8 +2,10 @@ package org.leiax00.universe.common.bean.po;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class UserInfo {
+public class UserInfo implements Serializable {
     private int id;
 
     private String username;

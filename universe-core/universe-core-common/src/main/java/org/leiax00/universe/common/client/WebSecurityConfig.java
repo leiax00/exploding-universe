@@ -3,6 +3,7 @@ package org.leiax00.universe.common.client;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.leiax00.universe.common.bean.bo.UriAuth;
+import org.leiax00.universe.common.bean.bo.UriAuthInfo;
 import org.leiax00.universe.common.bean.common.CommonConst;
 import org.leiax00.universe.common.bean.common.ResultCode;
 import org.leiax00.universe.common.bean.dto.ResponseRst;
@@ -29,6 +30,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @Slf4j
 @Configuration
@@ -54,13 +56,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
         ;
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests = http.authorizeRequests();
-        uriAuth.getAuthList().forEach(item -> {
-            if (CommonConst.SYMBOL_PUBLIC.equals(item.getAuth().toUpperCase())) {
-                authorizeRequests.antMatchers(item.getUri()).permitAll();
-            } else {
-                authorizeRequests.antMatchers(item.getUri()).hasAuthority(item.getAuth());
-            }
-        });
+        List<UriAuthInfo> authList = uriAuth.getAuthList();
+        if (authList != null && authList.size() > 0) {
+            authList.forEach(item -> {
+                if (CommonConst.SYMBOL_PUBLIC.equals(item.getAuth().toUpperCase())) {
+                    authorizeRequests.antMatchers(item.getUri()).permitAll();
+                } else {
+                    authorizeRequests.antMatchers(item.getUri()).hasAuthority(item.getAuth());
+                }
+            });
+        }
         authorizeRequests.anyRequest().authenticated();
         http.logout().logoutUrl("/**/logout").addLogoutHandler(new CommonLogoutHandler())
                 .and()
