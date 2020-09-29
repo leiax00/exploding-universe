@@ -5,7 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.context.annotation.Configuration;
 
-@DubboComponentScan
+@DubboComponentScan("com.leiax00.universe.owner.service")
 @Configuration
 @MapperScans({
         @MapperScan("com.leiax00.universe.owner.mapper")
