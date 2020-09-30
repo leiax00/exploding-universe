@@ -70,7 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             });
         }
         authorizeRequests.anyRequest().authenticated();
-        http.logout().logoutUrl("/**/logout").addLogoutHandler(new CommonLogoutHandler())
+        http.logout().logoutUrl("/**/logout").addLogoutHandler(new CommonLogoutHandler(tokenService))
                 .and()
                 .addFilter(new CommonLoginFilter(authenticationManager(), tokenService))
                 .addFilter(new BasicAuthFilter(authenticationManager(), tokenService))

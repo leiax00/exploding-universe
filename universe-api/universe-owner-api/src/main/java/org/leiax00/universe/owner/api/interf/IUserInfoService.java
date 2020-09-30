@@ -8,4 +8,6 @@ public interface IUserInfoService<T> {
     boolean isValidToken(String token);
 
     T validateAndReturnUser(String token);
+
+    void removeToken(String token);
 }

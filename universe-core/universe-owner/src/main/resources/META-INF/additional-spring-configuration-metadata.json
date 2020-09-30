@@ -1,0 +1,15 @@
+{
+  "properties": [
+    {
+      "name": "universe.owner.auth-refresh",
+      "type": "java.time.Duration",
+      "defaultValue": "5m",
+      "description": "鉴权token的刷新时间."
+    },
+    {
+      "name": "universe.owner.auth-timeout",
+      "type": "java.time.Duration",
+      "defaultValue": "30m",
+      "description": "鉴权token的过期时间."
+    }
+  ] }

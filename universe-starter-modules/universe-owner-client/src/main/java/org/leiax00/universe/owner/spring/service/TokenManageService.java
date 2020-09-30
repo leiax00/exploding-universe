@@ -39,4 +39,8 @@ public class TokenManageService {
             throw new UniverseRpcException(e);
         }
     }
+
+    public void removeToken(String token) {
+        service.removeToken(token);
+    }
 }
