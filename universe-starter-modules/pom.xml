@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>universe-starter-modules</artifactId>
+    <packaging>pom</packaging>
     <modules>
         <module>universe-common</module>
         <module>universe-owner-client</module>

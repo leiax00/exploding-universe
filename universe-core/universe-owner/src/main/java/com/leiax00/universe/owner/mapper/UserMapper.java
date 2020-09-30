@@ -3,7 +3,7 @@ package com.leiax00.universe.owner.mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
-import org.leiax00.universe.common.bean.po.UserInfo;
+import org.leiax00.universe.owner.api.bean.po.UserInfo;
 import org.springframework.stereotype.Repository;
 
 @Repository
