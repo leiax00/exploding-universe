@@ -1,11 +1,15 @@
 
 package org.leiax00.universe.owner.spring.service;
 
-import org.leiax00.universe.owner.api.interf.IUserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.leiax00.universe.owner.client.bean.bo.UserAuthDetail;
+import org.apache.dubbo.rpc.RpcException;
+import org.leiax00.universe.common.bean.common.ResultCode;
+import org.leiax00.universe.common.bean.exception.UniverseException;
+import org.leiax00.universe.common.bean.exception.UniverseRpcException;
 import org.leiax00.universe.owner.api.bean.po.UserInfo;
+import org.leiax00.universe.owner.api.interf.IUserInfoService;
+import org.leiax00.universe.owner.client.bean.bo.UserAuthDetail;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,9 +23,14 @@ public class AuthUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        UserInfo userInfo = service.findByUsername(userName);
-        return userInfo == null ? null : UserAuthDetail.builder()
-                .userInfo(userInfo)
-                .build();
+        try {
+            UserInfo userInfo = service.findByUsername(userName);
+            return userInfo == null ? null : UserAuthDetail.builder()
+                    .userInfo(userInfo)
+                    .build();
+        } catch (RpcException e) {
+            log.error("failed to request remote service for auth user. err:", e);
+            throw new UniverseRpcException("rpc exception.", e);
+        }
     }
 }

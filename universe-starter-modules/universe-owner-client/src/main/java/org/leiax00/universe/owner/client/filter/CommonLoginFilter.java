@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.dubbo.rpc.RpcException;
 import org.leiax00.universe.common.bean.common.ResultCode;
 import org.leiax00.universe.common.bean.dto.ResponseRst;
+import org.leiax00.universe.common.bean.exception.UniverseException;
+import org.leiax00.universe.common.bean.exception.UniverseRpcException;
 import org.leiax00.universe.owner.api.bean.dto.SimpleUser;
 import org.leiax00.universe.owner.api.bean.po.UserInfo;
 import org.leiax00.universe.owner.client.bean.bo.UserAuthDetail;
@@ -64,10 +66,10 @@ public class CommonLoginFilter extends UsernamePasswordAuthenticationFilter {
                     .data(new AuthUserResp().fillBy(token, userInfo))
                     .build().withOk()
             );
-        } catch (RpcException e) {
+        } catch (UniverseRpcException e) {
             logger.error("failed to request remote service, err:", e);
             JSONObject.writeJSONString(response.getWriter(), ResponseRst.builder()
-                    .build().withError(ResultCode.STATUS_RPC_EXCEPTION));
+                    .build().withError(e.getCode()));
         }
     }
 
@@ -78,8 +80,8 @@ public class CommonLoginFilter extends UsernamePasswordAuthenticationFilter {
         ResponseRst<Object> rst = ResponseRst.builder()
                 .build().withData(failed.getMessage());
         Throwable cause = failed.getCause();
-        if (cause instanceof RpcException) {
-            rst.withError(ResultCode.STATUS_RPC_EXCEPTION);
+        if (cause instanceof UniverseRpcException) {
+            rst.withError(((UniverseRpcException) cause).getCode());
         } else {
             rst.withError(ResultCode.STATUS_INVALID_AUTH_INFO);
         }

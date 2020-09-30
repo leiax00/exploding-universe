@@ -6,4 +6,6 @@ public interface IUserInfoService<T> {
     String generateToken(T t);
 
     boolean isValidToken(String token);
+
+    T validateAndReturnUser(String token);
 }

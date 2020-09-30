@@ -11,7 +11,7 @@ public interface UserMapper {
     @Select("SELECT " +
             "t1.*, t2.id as r_id, t2.name as r_name, t2.authority, t2.description as r_description" +
             " FROM u_user t1, u_role t2 " +
-            "WHERE t1.role_id = t2.id")
+            "WHERE t1.role_id = t2.id AND username = #{userName}")
     @Results(id = "auth_user_map", value = {
             @Result(id = true, column = "id", property = "id"),
             @Result(column = "phone_num", property = "phoneNumber"),

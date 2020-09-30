@@ -73,7 +73,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout().logoutUrl("/**/logout").addLogoutHandler(new CommonLogoutHandler())
                 .and()
                 .addFilter(new CommonLoginFilter(authenticationManager(), tokenService))
-                .addFilter(new BasicAuthFilter(authenticationManager()))
+                .addFilter(new BasicAuthFilter(authenticationManager(), tokenService))
         ;
     }
 

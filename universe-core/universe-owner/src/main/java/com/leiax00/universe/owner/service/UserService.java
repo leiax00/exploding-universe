@@ -1,6 +1,7 @@
 package com.leiax00.universe.owner.service;
 
 import com.leiax00.universe.owner.mapper.UserMapper;
+import org.leiax00.universe.common.bean.exception.UniverseException;
 import org.leiax00.universe.owner.api.interf.IUserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -34,5 +35,10 @@ public class UserService implements IUserInfoService<UserInfo> {
     @Override
     public boolean isValidToken(String token) {
         return true;
+    }
+
+    @Override
+    public UserInfo validateAndReturnUser(String token) {
+        return userMapper.findByUsername("admin");
     }
 }
