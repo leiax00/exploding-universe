@@ -1,6 +1,6 @@
 package org.leiax00.universe.owner.client.filter;
 
-import org.leiax00.universe.owner.client.bean.common.CommonConst;
+import org.leiax00.universe.common.bean.common.CommonConst;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

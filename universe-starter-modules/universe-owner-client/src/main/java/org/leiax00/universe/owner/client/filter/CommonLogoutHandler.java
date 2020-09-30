@@ -2,7 +2,7 @@ package org.leiax00.universe.owner.client.filter;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.leiax00.universe.owner.client.bean.dto.ResponseRst;
+import org.leiax00.universe.common.bean.dto.ResponseRst;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;

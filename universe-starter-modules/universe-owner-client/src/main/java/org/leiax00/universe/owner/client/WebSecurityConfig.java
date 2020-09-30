@@ -3,13 +3,14 @@ package org.leiax00.universe.owner.client;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.leiax00.universe.owner.client.bean.bo.UriAuth;
-import org.leiax00.universe.owner.api.bean.bo.UriAuthInfo;
-import org.leiax00.universe.owner.client.bean.common.CommonConst;
-import org.leiax00.universe.owner.client.bean.common.ResultCode;
-import org.leiax00.universe.owner.client.bean.dto.ResponseRst;
+import org.leiax00.universe.owner.client.bean.bo.UriAuthInfo;
+import org.leiax00.universe.common.bean.common.CommonConst;
+import org.leiax00.universe.common.bean.common.ResultCode;
+import org.leiax00.universe.common.bean.dto.ResponseRst;
 import org.leiax00.universe.owner.client.filter.BasicAuthFilter;
 import org.leiax00.universe.owner.client.filter.CommonLoginFilter;
 import org.leiax00.universe.owner.client.filter.CommonLogoutHandler;
+import org.leiax00.universe.owner.spring.service.TokenManageService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -40,10 +41,12 @@ import java.util.List;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UriAuth uriAuth;
     private final UserDetailsService userDetailsService;
+    private final TokenManageService tokenService;
 
-    public WebSecurityConfig(UriAuth uriAuth, UserDetailsService userDetailsService) {
+    public WebSecurityConfig(UriAuth uriAuth, UserDetailsService userDetailsService, TokenManageService tokenService) {
         this.uriAuth = uriAuth;
         this.userDetailsService = userDetailsService;
+        this.tokenService = tokenService;
     }
 
     @Override
@@ -69,7 +72,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         authorizeRequests.anyRequest().authenticated();
         http.logout().logoutUrl("/**/logout").addLogoutHandler(new CommonLogoutHandler())
                 .and()
-                .addFilter(new CommonLoginFilter(authenticationManager()))
+                .addFilter(new CommonLoginFilter(authenticationManager(), tokenService))
                 .addFilter(new BasicAuthFilter(authenticationManager()))
         ;
     }

@@ -1,7 +1,7 @@
 package com.leiax00.universe.owner.controller;
 
 import com.leiax00.universe.owner.service.UserService;
-import org.leiax00.universe.owner.client.bean.dto.ResponseRst;
+import org.leiax00.universe.common.bean.dto.ResponseRst;
 import org.leiax00.universe.owner.api.bean.po.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

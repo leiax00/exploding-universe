@@ -1,4 +1,4 @@
-package org.leiax00.universe.owner.client.bean.common;
+package org.leiax00.universe.common.bean.common;
 
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
@@ -9,6 +9,7 @@ public enum ResultCode {
     STATUS_FAILED(1500, "STATUS_FAILED"),
     STATUS_UNAUTHORIZED(1501, "STATUS_UNAUTHORIZED"),
     STATUS_INVALID_AUTH_INFO(1502, "INVALID_AUTH_INFO"),
+    STATUS_RPC_EXCEPTION(1550, "RPC_EXCEPTION"),
     ;
 
     private final int code;

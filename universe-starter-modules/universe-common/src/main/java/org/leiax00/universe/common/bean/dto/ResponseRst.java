@@ -1,10 +1,10 @@
-package org.leiax00.universe.owner.client.bean.dto;
+package org.leiax00.universe.common.bean.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.leiax00.universe.owner.client.bean.common.ResultCode;
+import org.leiax00.universe.common.bean.common.ResultCode;
 
 @Data
 @Builder

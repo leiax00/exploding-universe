@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @DubboService
 @Service
 @Slf4j
@@ -26,11 +28,11 @@ public class UserService implements IUserInfoService<UserInfo> {
 
     @Override
     public String generateToken(UserInfo userInfo) {
-        return null;
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
     @Override
     public boolean isValidToken(String token) {
-        return false;
+        return true;
     }
 }

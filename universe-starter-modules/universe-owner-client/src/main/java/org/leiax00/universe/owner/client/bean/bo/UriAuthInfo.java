@@ -1,4 +1,4 @@
-package org.leiax00.universe.owner.api.bean.bo;
+package org.leiax00.universe.owner.client.bean.bo;
 
 import lombok.Data;
 
