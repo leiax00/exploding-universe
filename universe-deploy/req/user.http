@@ -1,0 +1,28 @@
+# 根据用户名查询用户信息，示例：admin
+GET {{base_url}}/{{api_prefix}}/user/find/name/admin
+Accept: application/json
+at-code: {{token}}
+
+###
+# 登录接口
+POST {{base_url}}/{{api_prefix}}/user/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "lax4832."
+}
+
+> {%
+client.global.set("token", response.body.data.token);
+%}
+###
+# 退出登录接口
+GET {{base_url}}/{{api_prefix}}/user/logout
+Accept: application/json
+at-code: {{token}}
+
+> {%
+ client.global.clear("token");
+ %}
+###
