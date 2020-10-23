@@ -1,10 +1,15 @@
 package com.leiax00.universe.owner.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.leiax00.universe.owner.bean.constant.CommonConst;
 import com.leiax00.universe.owner.mapper.UserMapper;
 import com.leiax00.universe.owner.sys.config.AppConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.leiax00.universe.common.bean.dto.BaseFilterCond;
+import org.leiax00.universe.common.bean.dto.PageCond;
+import org.leiax00.universe.common.bean.dto.PageRst;
 import org.leiax00.universe.owner.api.bean.po.UserInfo;
 import org.leiax00.universe.owner.api.interf.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,5 +85,16 @@ public class UserService implements IUserInfoService<UserInfo> {
     @Override
     public void removeToken(String token) {
         this.template.delete(CommonConst.getRedisKey4UserByToken(token));
+    }
+
+    public PageRst<UserInfo> queryAll(PageCond<BaseFilterCond> pageCond) {
+        PageInfo<UserInfo> pageInfo = PageHelper.startPage(pageCond).doSelectPageInfo(userMapper::queryAll);
+        return PageRst.<UserInfo>builder()
+                .pageNum(pageInfo.getPageNum())
+                .pageSize(pageInfo.getPageSize())
+                .totalPages(pageInfo.getPages())
+                .totalSize(pageInfo.getTotal())
+                .data(pageInfo.getList())
+                .build();
     }
 }
