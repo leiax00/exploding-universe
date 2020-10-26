@@ -1,6 +1,7 @@
 import { login, logout, getInfo } from '@/api/user';
 import { getToken, setToken, removeToken } from '@/utils/auth';
 import { resetRouter } from '@/router';
+import ApiConst from '@/api/ApiConst';
 
 const getDefaultState = () => {
   return {
@@ -13,28 +14,29 @@ const getDefaultState = () => {
 const state = getDefaultState();
 
 const mutations = {
-  RESET_STATE: (state) => {
+  [ApiConst.USER.MUTATION.RESET_STATE]: (state) => {
     Object.assign(state, getDefaultState());
   },
-  SET_TOKEN: (state, token) => {
+  [ApiConst.USER.MUTATION.SET_TOKEN]: (state, token) => {
     state.token = token;
   },
-  SET_NAME: (state, name) => {
+  [ApiConst.USER.MUTATION.SET_NAME]: (state, name) => {
     state.name = name;
   },
-  SET_AVATAR: (state, avatar) => {
+  [ApiConst.USER.MUTATION.SET_AVATAR]: (state, avatar) => {
     state.avatar = avatar;
   },
 };
 
 const actions = {
   // user login
-  login({ commit }, userInfo) {
+  [ApiConst.USER.ACTION.LOGIN]: ({ commit }, userInfo) => {
     const { username, password } = userInfo;
+    console.log(JSON.stringify(userInfo));
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
         const { data } = response;
-        commit('SET_TOKEN', data.token);
+        commit(ApiConst.USER.MUTATION.SET_TOKEN, data.token);
         setToken(data.token);
         resolve();
       }).catch(error => {
@@ -44,7 +46,7 @@ const actions = {
   },
 
   // get user info
-  getInfo({ commit, state }) {
+  [ApiConst.USER.ACTION.GET_INFO]: ({ commit, state }) => {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
         const { data } = response;
@@ -55,8 +57,8 @@ const actions = {
 
         const { name, avatar } = data;
 
-        commit('SET_NAME', name);
-        commit('SET_AVATAR', avatar);
+        commit(ApiConst.USER.MUTATION.SET_NAME, name);
+        commit(ApiConst.USER.MUTATION.SET_AVATAR, avatar);
         resolve(data);
       }).catch(error => {
         reject(error);
@@ -65,12 +67,12 @@ const actions = {
   },
 
   // user logout
-  logout({ commit, state }) {
+  [ApiConst.USER.ACTION.LOGOUT]: ({ commit, state }) => {
     return new Promise((resolve, reject) => {
       logout(state.token).then(() => {
         removeToken(); // must remove  token  first
         resetRouter();
-        commit('RESET_STATE');
+        commit(ApiConst.USER.MUTATION.RESET_STATE);
         resolve();
       }).catch(error => {
         reject(error);
@@ -79,10 +81,10 @@ const actions = {
   },
 
   // remove token
-  resetToken({ commit }) {
+  [ApiConst.USER.ACTION.RESET_TOKEN]: ({ commit }) => {
     return new Promise(resolve => {
       removeToken(); // must remove  token  first
-      commit('RESET_STATE');
+      commit(ApiConst.USER.MUTATION.RESET_STATE);
       resolve();
     });
   },

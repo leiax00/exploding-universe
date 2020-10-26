@@ -5,6 +5,7 @@
   "author": "Leiax00 <leiax00@outlook.com>",
   "scripts": {
     "dev": "vue-cli-service serve",
+    "prod": "vue-cli-service serve --mode production",
     "build": "vue-cli-service build",
     "build:prod": "vue-cli-service build",
     "build:stage": "vue-cli-service build --mode staging",

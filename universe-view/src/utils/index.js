@@ -1,6 +1,17 @@
-/**
- * Created by PanJiaChen on 16/11/18.
- */
+import defaultSettings from '@/settings';
+
+const title = defaultSettings.title || 'Vue Admin Template';
+
+export default function getPageTitle(pageTitle) {
+  if (pageTitle) {
+    return `${pageTitle} - ${title}`;
+  }
+  return `${title}`;
+}
+
+export function isExternal(path) {
+  return /^(https?:|mailto:|tel:)/.test(path);
+}
 
 /**
  * Parse the time to string
