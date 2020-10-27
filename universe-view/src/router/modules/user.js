@@ -1,14 +1,15 @@
 const userRouter = {
   path: '/user',
-  component: { render: h => h('router-view') },
+  component: () => import(/* webpackChunkName: "layout" */ '@/layout/BasicLayout'),
+  redirect: '/user/login',
   children: [
     {
-      path: '/user/login',
+      path: 'login',
       name: 'login',
       component: () => import(/* webpackChunkName: "user" */ '@/views/user/Login'),
     },
     {
-      path: '/user/register',
+      path: 'register',
       name: 'register',
       component: () => import(/* webpackChunkName: "user" */ '@/views/user/Register'),
     },

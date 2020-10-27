@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import Nprocess from 'nprogress';
+import 'nprogress/nprogress.css';
 import userRouter from '@/router/modules/user';
 
 Vue.use(VueRouter);
@@ -11,22 +13,24 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
   userRouter,
+  { path: '*', name: '404', component: () => import(/* webpackChunkName: "error" */ '@/views/404') },
 ];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  Nprocess.start();
+  next();
+});
+
+router.afterEach(() => {
+  Nprocess.done();
+  console.log('bbbb');
 });
 
 export default router;
