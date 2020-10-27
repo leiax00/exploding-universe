@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-button>aaa</el-button>
+    <a-button>aaa</a-button>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -9,4 +9,5 @@
   </div>
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+</style>

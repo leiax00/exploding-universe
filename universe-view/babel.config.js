@@ -1,12 +1,6 @@
 module.exports = {
-  // "presets": [["@babel/preset-env", { "modules": false }]],
-  // "plugins": [
-  //   [
-  //     "component",
-  //     {
-  //       "libraryName": "element-ui",
-  //       "styleLibraryName": "theme-chalk"
-  //     }
-  //   ]
-  // ]
+  'presets': ['@vue/app'],
+  'plugins': [
+    ['import', { 'libraryName': 'ant-design-vue', 'libraryDirectory': 'es', 'style': true }], // `style: true` 会加载 less 文件
+  ],
 };
