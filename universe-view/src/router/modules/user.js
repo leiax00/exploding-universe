@@ -1,6 +1,6 @@
 const userRouter = {
   path: '/user',
-  component: () => import(/* webpackChunkName: "layout" */ '@/layout/BasicLayout'),
+  component: () => import(/* webpackChunkName: "layout" */ '@/layout/index'),
   redirect: '/user/login',
   children: [
     {

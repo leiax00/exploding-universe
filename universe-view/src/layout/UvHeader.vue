@@ -10,7 +10,7 @@ export default {
 
 <style scoped>
   .uv-header {
-    float: right;
+    /*float: right;*/
     margin-right: 16px;
   }
 </style>

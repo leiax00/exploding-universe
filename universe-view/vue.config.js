@@ -15,19 +15,19 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   devServer: {
     port: port,
-    open: true,
+    open: false,
     overlay: {
       warnings: false,
       errors: true,
     },
   },
-  css: {
-    loaderOptions: {
-      less: {
-        javascriptEnabled: true,
-      },
-    },
-  },
+  // css: {
+  //   loaderOptions: {
+  //     less: {
+  //       javascriptEnabled: true,
+  //     },
+  //   },
+  // },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
