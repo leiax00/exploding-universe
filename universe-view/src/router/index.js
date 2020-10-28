@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import NProcess from 'nprogress';
 import 'nprogress/nprogress.css';
 import userRouter from '@/router/modules/user';
+import UvLayout from '@/layout/index';
 
 Vue.use(VueRouter);
 
@@ -10,7 +11,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "layout" */ '@/layout/index'),
+    component: UvLayout,
   },
   userRouter,
   { path: '*', name: '404', component: () => import(/* webpackChunkName: "error" */ '@/views/404') },

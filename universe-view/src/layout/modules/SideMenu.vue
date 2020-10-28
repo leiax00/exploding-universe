@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <div>user layout</div>
-    <router-view />
-  </div>
+  <div>SideMenu</div>
 </template>
 
 <script>
 export default {
-  name: 'UserLayout',
+  name: 'SideMenu',
 };
 </script>
 

@@ -2,7 +2,7 @@
 @import './mixin.scss';
 
 body {
-  height: 100%;
+  @include height-full;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -10,7 +10,7 @@ body {
 }
 
 html {
-  height: 100%;
+  @include height-full;
   box-sizing: border-box;
 }
 
@@ -19,7 +19,7 @@ label {
 }
 
 #app {
-  height: 100%;
+  @include height-full;
 }
 
 *,
