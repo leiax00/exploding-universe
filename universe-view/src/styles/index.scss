@@ -3,6 +3,10 @@
 
 body {
   @include height-full;
+  @include font-setting;
+  background: $background;
+  color: $baseColor;
+  margin: 0;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

@@ -1,3 +1,23 @@
+@import './variables.scss';
 @mixin height-full {
   height: 100%;
+}
+
+@mixin container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 80%;
+  width: 80%;
+  flex-grow: 1;
+}
+
+@mixin padding-horizontal {
+  padding: 0 0.75rem;
+}
+
+@mixin font-setting {
+  font-size: $baseFontSize;
+  font-weight: $baseFontWeight;
+  line-height: $baseLineHeight;
 }
