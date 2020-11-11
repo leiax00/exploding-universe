@@ -56,6 +56,6 @@ export default {
   }
 
   .header-night {
-    background-color: rgba(21,19,19,0.678);
+    background-color: $background-color-header;
   }
 </style>

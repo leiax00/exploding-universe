@@ -1,7 +1,7 @@
 <template>
   <div class="uv-header">
     <div class="uv-header-logo">
-      <a class="nav-item" :href="`/`"><img src="@/assets/imgs/logo.png" alt="Simple Zero" height="28"></a>
+      <a class="nav-item" href="/"><img src="@/assets/imgs/logo.png" alt="Simple Zero" height="28"></a>
     </div>
     <div class="uv-header-nav">
       <template v-for="item of headers">
@@ -14,11 +14,12 @@
         class="nav-item"
         target="_blank"
         rel="noopener"
-        title="Download on GitHub"
-        href="https://github.com/removeif"
+        title="Go To GitHub"
+        href="https://github.com/leiax00"
       >
         <uv-icon icon-class="github" />
       </a>
+      <a class="nav-item" title="search"><uv-icon icon-class="search" /></a>
     </div>
   </div>
 </template>
@@ -59,5 +60,12 @@ export default {
   .uv-header-nav {
     display: flex;
     flex-grow: 0;
+  }
+
+  .uv-header-func{
+    display: flex;
+    flex-grow: 0;
+    justify-content: flex-end;
+    margin-left: auto;
   }
 </style>

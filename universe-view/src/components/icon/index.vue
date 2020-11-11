@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import setting from '@/settings';
+
 export default {
   name: 'UvIcon',
   props: {
@@ -31,7 +33,7 @@ export default {
   },
   mounted() {
     var element = document.createElement('script');
-    element.src = '//at.alicdn.com/t/font_2015893_y2guttly8up.js';
+    element.src = setting.svg_js;
     document.body.appendChild(element);
   },
 };
