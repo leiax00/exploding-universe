@@ -1,50 +1,63 @@
 <template>
   <div class="uv-header">
-    <div class="uv-header-logo">logo</div>
+    <div class="uv-header-logo">
+      <a class="nav-item" :href="`/`"><img src="@/assets/imgs/logo.png" alt="Simple Zero" height="28"></a>
+    </div>
     <div class="uv-header-nav">
       <template v-for="item of headers">
         <a :key="item.id" class="nav-item" :href="`/${item.id}`">{{ $t(item.name) }}</a>
       </template>
       <div />
-    </div></div></template>
+    </div>
+    <div class="uv-header-func">
+      <a
+        class="nav-item"
+        target="_blank"
+        rel="noopener"
+        title="Download on GitHub"
+        href="https://github.com/removeif"
+      >
+        <uv-icon icon-class="github" />
+      </a>
+    </div>
+  </div>
+</template>
 
 <script>
 import setting from '@/prop/setting';
+import UvIcon from '@/components/icon';
 
 export default {
   name: 'UvHeader',
+  components: { UvIcon },
   data: function() {
     return {
       headers: setting.HEADER,
     };
+  },
+  mounted() {
+
   },
 };
 </script>
 
 <style lang="scss" scoped>
   @import "~@/styles/mixin.scss";
+
   .uv-header {
     @include container;
-    min-height: 3.25rem;
-    height: 100%;
-
+    & .nav-item {
+      @include padding-header;
+      display: flex;
+      align-items: center;
+    }
   }
 
   .uv-header-logo {
-    @include padding-horizontal;
   }
 
   .uv-header-nav {
-    @include padding-horizontal;
-    box-sizing: inherit;
-  }
-
-  .nav-item {
-    @include padding-horizontal;
-
     display: flex;
-    /*align-items: center;*/
-    cursor: pointer;
     flex-grow: 0;
   }
 </style>

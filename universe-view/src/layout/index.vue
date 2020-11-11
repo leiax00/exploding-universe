@@ -4,7 +4,7 @@
       <side-menu />
     </el-aside>
     <el-container>
-      <el-header>
+      <el-header :class="{'header-night': isNight}">
         <uv-header />
       </el-header>
       <el-main>
@@ -34,6 +34,7 @@ export default {
   data() {
     return {
       showSide: false,
+      isNight: true,
     };
   },
 };
@@ -52,5 +53,9 @@ export default {
       position: fixed;
       top: 0;
     }
+  }
+
+  .header-night {
+    background-color: rgba(21,19,19,0.678);
   }
 </style>
