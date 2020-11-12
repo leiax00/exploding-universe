@@ -14,6 +14,9 @@
         <uv-footer />
       </el-footer>
     </el-container>
+    <section id="little_cute" class="uv_little_cute">
+      <little-cute />
+    </section>
   </el-container>
 </template>
 
@@ -22,6 +25,7 @@ import UvHeader from '@/layout/modules/UvHeader';
 import UvFooter from '@/layout/modules/UvFooter';
 import SideMenu from '@/layout/modules/SideMenu';
 import AppMain from '@/layout/modules/AppMain';
+import LittleCute from '@/components/littleCute';
 
 export default {
   name: 'UvLayout',
@@ -30,6 +34,7 @@ export default {
     UvHeader,
     UvFooter,
     SideMenu,
+    LittleCute,
   },
   data() {
     return {
@@ -57,5 +62,10 @@ export default {
 
   .header-night {
     background-color: $background-color-header;
+  }
+
+  .uv_little_cute {
+    right: 72px;
+    transition: all 0.3s ease-in-out 0s;
   }
 </style>
