@@ -80,9 +80,8 @@ export default {
 
   .uv_little_cute {
       position: fixed;
-      width: 240px;
-      height: 200px;
-      background-color: #4AB7BD;
+      width: 250px;
+      height: 300px;
       bottom: 0;
       z-index: 1;
       right: 0.75rem;
