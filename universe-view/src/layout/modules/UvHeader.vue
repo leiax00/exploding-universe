@@ -1,7 +1,7 @@
 <template>
   <div class="uv-header">
     <div class="uv-header-logo">
-      <a class="nav-item" href="/"><img src="@/assets/imgs/logo.png" alt="Simple Zero" height="28"></a>
+      <a class="nav-item" href="/"><img src="@/assets/imgs/simple_zero.png" alt="Simple Zero" height="28"></a>
     </div>
     <div class="uv-header-nav">
       <template v-for="item of headers">

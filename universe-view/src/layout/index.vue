@@ -1,23 +1,25 @@
 <template>
-  <el-container class="app-wrapper">
-    <el-aside v-if="showSide">
-      <side-menu />
-    </el-aside>
-    <el-container>
-      <el-header :class="{'header-night': isNight}">
+  <div id="layout">
+    <section id="base_layout" class="app-wrapper">
+      <div v-if="showSide" id="layout_sider">
+        <side-menu />
+      </div>
+      <div id="layout_header" :class="{'header-night': isNight}">
         <uv-header />
-      </el-header>
-      <el-main>
-        <app-main />
-      </el-main>
-      <el-footer>
-        <uv-footer />
-      </el-footer>
-    </el-container>
-    <section id="little_cute" class="uv_little_cute">
-      <little-cute />
+      </div>
+      <section id="layout_content" class="layout_content">
+        <div id="layout_main" class="layout_main">
+          <app-main />
+        </div>
+        <div id="layout_footer" class="layout_footer">
+          <uv-footer />
+        </div>
+        <div id="little_cute" class="uv_little_cute">
+          <little-cute />
+        </div>
+      </section>
     </section>
-  </el-container>
+  </div>
 </template>
 
 <script>
@@ -50,22 +52,40 @@ export default {
   @import "~@/styles/variables.scss";
 
   .app-wrapper {
-    position: relative;
-    height: 100%;
-    width: 100%;
+      position: relative;
+      height: 100%;
+      width: 100%;
 
-    &.mobile.openSidebar {
-      position: fixed;
-      top: 0;
-    }
+      &.mobile.openSidebar {
+          position: fixed;
+          top: 0;
+      }
   }
 
   .header-night {
-    background-color: $background-color-header;
+      background-color: $background-color-header;
+  }
+
+  .layout_content {
+      padding: 1.25rem 0.75rem;
+  }
+
+  .layout_main {
+      height: 800px;
+  }
+
+  .layout_footer {
+      margin-top: 1.25rem;
   }
 
   .uv_little_cute {
-    right: 72px;
-    transition: all 0.3s ease-in-out 0s;
+      position: fixed;
+      width: 240px;
+      height: 200px;
+      background-color: #4AB7BD;
+      bottom: 0;
+      z-index: 1;
+      right: 0.75rem;
+      transition: all 0.3s ease-in-out 0s;
   }
 </style>
