@@ -60,9 +60,10 @@ export default {
   .uv-header {
     @include container;
     & .nav-item {
-      @include padding-header;
+      @include padding-2-common;
       display: flex;
       align-items: center;
+      height: 3.75rem;
     }
   }
 

@@ -7,7 +7,7 @@ export default {
   name: 'UvFooter',
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "~@/styles/mixin.scss";
 
   .uv-footer {

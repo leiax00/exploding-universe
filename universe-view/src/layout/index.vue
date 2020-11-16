@@ -63,7 +63,7 @@ export default {
   }
 
   .header-night {
-      background-color: $background-color-header;
+      background-color: $background-color-font;
   }
 
   .layout_content {

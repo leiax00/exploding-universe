@@ -11,7 +11,15 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    redirect: '/index',
     component: UvLayout,
+    children: [
+      {
+        path: 'index',
+        name: 'home',
+        component: () => import(/* webpackChunkName: "user" */ '@/views/Home'),
+      },
+    ],
   },
   userRouter,
   { path: '*', name: '404', component: () => import(/* webpackChunkName: "error" */ '@/views/404') },
