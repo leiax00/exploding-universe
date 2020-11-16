@@ -5,12 +5,17 @@ body {
   @include height-full;
   @include font-setting;
   background: $background;
-  color: $baseColor;
+  color: $color-font;
   margin: 0;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.night {
+  color: #c0c0c0 !important;
+  background-color: #000;
 }
 
 html {
@@ -34,9 +39,44 @@ label {
 
 a {
   cursor: pointer;
-  text-decoration:none;
-  color: #c0c0c0;
+  text-decoration: none;
+  color: $color-font;
+
   &:hover {
     color: #3273dc;
   }
+}
+
+.image {
+  display: block;
+  position: relative;
+}
+
+.size-128x128 {
+  height: 128px;
+  width: 128px;
+}
+
+.is-rounded {
+  border-radius: 10000px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.125;
+}
+
+.is-middle {
+  text-align: center !important;
+}
+
+// 紧凑显示
+.compact {
+  margin: 0;
+  padding: 0;
+}
+
+.preface {
+
 }

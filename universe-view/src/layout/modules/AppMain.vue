@@ -1,7 +1,7 @@
 <template>
   <div class="uv-main">
     <div id="info_show">
-      个人信息
+      <user-card/>
     </div>
     <div id="main_show">
       <router-view />
@@ -12,8 +12,13 @@
   </div>
 </template>
 <script>
+
+import UserCard from '@/components/userCard';
 export default {
   name: 'AppMain',
+  components: {
+    UserCard,
+  },
 };
 </script>
 
