@@ -10,6 +10,7 @@
       <div />
     </div>
     <div class="uv-header-func">
+      <a class="nav-item" :title="themeObj.title" @click="changeTheme"><uv-icon :icon-class="themeObj.icon" /></a>
       <a
         class="nav-item"
         target="_blank"
@@ -25,7 +26,7 @@
 </template>
 
 <script>
-import setting from '@/prop/setting';
+import setting from '@/settings';
 import UvIcon from '@/components/icon';
 
 export default {
@@ -34,10 +35,21 @@ export default {
   data: function() {
     return {
       headers: setting.HEADER,
+      themeKey: 'night',
     };
+  },
+  computed: {
+    themeObj: function() {
+      return setting.theme[this.themeKey];
+    },
   },
   mounted() {
 
+  },
+  methods: {
+    changeTheme() {
+      this.themeKey = this.themeKey === 'night' ? 'sun' : 'night';
+    },
   },
 };
 </script>
