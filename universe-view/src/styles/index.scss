@@ -43,7 +43,7 @@ a {
   color: $color-font;
 
   &:hover {
-    color: #3273dc;
+    color: $hover-color;
   }
 }
 
@@ -55,6 +55,8 @@ a {
 .size-128x128 {
   height: 128px;
   width: 128px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .is-rounded {
@@ -65,18 +67,59 @@ a {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.125;
+  word-break: break-word;
 }
 
 .is-middle {
   text-align: center !important;
+  align-items: center;
+  justify-content: center;
 }
 
 // 紧凑显示
 .compact {
-  margin: 0;
-  padding: 0;
+  @include compact;
 }
 
 .preface {
 
+}
+
+.uv-button {
+  background-color: #fff;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  color: $color-font;
+  cursor: pointer;
+  justify-content: center;
+  padding: calc(0.375em - 1px) 1em;
+  text-align: center;
+  white-space: nowrap;
+  &.is-primary {
+    background-color: darken($light-blue, 5);
+    border-color: transparent;
+    color: darken(#fff, 5);
+
+    &:hover {
+      color: lighten(#fff, 5);
+      background-color: lighten($light-blue, 5);
+    }
+
+    &.is-rounded {
+      border-radius: 10000px;
+      padding-left: calc(1em + 0.25em);
+      padding-right: calc(1em + 0.25em);
+    }
+  }
+  &.no-background-color {
+    background-color: transparent;
+  }
+}
+
+.is-block {
+  display: block;
+}
+
+.is-flex {
+  display: flex;
 }

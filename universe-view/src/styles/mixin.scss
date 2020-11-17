@@ -12,6 +12,12 @@
   flex-grow: 1;
 }
 
+// 紧凑显示
+@mixin compact {
+  margin: 0;
+  padding: 0;
+}
+
 @mixin padding-2-common($vertical:1.25rem, $horizontal:0.75rem) {
   @include padding-4-common($vertical, $vertical, $horizontal, $horizontal)
 }

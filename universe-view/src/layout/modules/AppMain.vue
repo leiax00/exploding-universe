@@ -1,7 +1,7 @@
 <template>
   <div class="uv-main">
     <div id="info_show">
-      <user-card/>
+      <user-card />
     </div>
     <div id="main_show">
       <router-view />
@@ -37,22 +37,21 @@ export default {
 
     & #info_show {
       @include common_css;
-      width: 300px;
+      width: 450px;
       min-height: 400px;
-
     }
 
     & #main_show {
       @include common_css;
       @include margin-4-common($top: 0);
       width: 100%;
-      height: 400px;
+      min-height: 400px;
     }
 
     & #other_show {
       @include common_css;
       width: 300px;
-      height: 400px;
+      min-height: 400px;
       justify-content: flex-end;
     }
   }
