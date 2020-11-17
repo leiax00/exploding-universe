@@ -4,8 +4,8 @@
       <figure class="image size-128x128">
         <img class="is-rounded" src="@/assets/imgs/avatar.png">
       </figure>
-      <p class="title is-middle compact">HERO</p>
-      <p class="preface compact">我的光辉时刻即是开大招的时候</p>
+      <p class="title is-middle compact">LEIAX00</p>
+      <p class="preface is-middle compact">初心永不泯，剑指九重天</p>
       <p class="is-middle compact">
         <uv-icon icon-class="location" />
         <span>中国</span>
