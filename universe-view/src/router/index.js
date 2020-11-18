@@ -17,7 +17,7 @@ const routes = [
       {
         path: 'index',
         name: 'home',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/Home'),
+        component: () => import(/* webpackChunkName: "user" */ '@/views/blog'),
       },
     ],
   },

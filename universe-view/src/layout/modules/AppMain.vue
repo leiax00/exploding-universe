@@ -34,7 +34,7 @@ export default {
 
   .uv-main {
     @include container;
-
+    align-items: flex-start;
     & #info_show {
       @include common_css;
       width: 450px;
