@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Universe-View',
-  svg_js: '//at.alicdn.com/t/font_2015893_m0o8icaug1p.js',
+  svg_js: '//at.alicdn.com/t/font_2015893_5aacmi31jbp.js',
   theme: {
     night: {
       title: 'Night Mode',

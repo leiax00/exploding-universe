@@ -27,7 +27,6 @@ export default {
   @import "~@/styles/variables.scss";
 
   @mixin common_css {
-    @include padding-2-common($horizontal: 1.25rem);
     @include margin-4-common($top: 0);
     background-color: $background-color-font;
   }
