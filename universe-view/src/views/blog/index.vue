@@ -1,17 +1,14 @@
 <template>
-  <div id="blog">
-    <div class="blog_ctl" @click="showDetail = !showDetail">←</div>
-    <div id="blog_content">
-      <uv-blog-detail v-if="showDetail" />
-      <uv-blog-list v-else />
-
-    </div>
+  <div id="blog_content">
+    <uv-blog-detail v-if="showDetail" />
+    <uv-blog-list v-else />
   </div>
 </template>
 
 <script>
 import UvBlogDetail from '@/views/blog/modules/UvBlogDetail';
 import UvBlogList from '@/views/blog/modules/UvBlogList';
+import { mapState } from 'vuex';
 
 export default {
   name: 'UvBlog',
@@ -20,9 +17,12 @@ export default {
     UvBlogList,
   },
   data: function() {
-    return {
-      showDetail: false,
-    };
+    return {};
+  },
+  computed: {
+    ...mapState('blog', [
+      'showDetail',
+    ]),
   },
 };
 </script>

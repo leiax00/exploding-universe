@@ -1,5 +1,5 @@
 <template>
-  <div id="blog-item">
+  <div id="blog-item" @click="showBlogDetail(model)">
     <!--    <div>{{ JSON.stringify(model) }}</div>-->
     <h4>{{ model.title }}</h4>
     <div class="blog-summary">
@@ -17,6 +17,7 @@
 
 <script>
 import UvIcon from '@/components/icon/index';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'UvBlogItem',
@@ -26,6 +27,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    ...mapActions('blog', [
+      'showBlogDetail',
+    ]),
   },
 };
 </script>
