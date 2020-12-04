@@ -36,7 +36,7 @@
     <div id="user_link" class="level is-flex">
       <template v-for="item of userLinks">
         <a
-          :key="item.href"
+          :key="item.title"
           class="view-item uv-button is-flex is-middle no-background-color"
           target="_blank"
           rel="noopener"
@@ -69,11 +69,11 @@ export default {
     return {
       viewInfos: [{ name: '文章', count: 1 }, { name: '分类', count: 1 }, { name: '标签', count: 1 }],
       userLinks: [
-        { title: 'GO TO GITHUB', href: 'https://github.com/leiax00', icon: 'github' },
-        { title: 'GO TO GITHUB', href: 'https://github.com/leiax00', icon: 'github' },
-        { title: 'GO TO GITHUB', href: 'https://github.com/leiax00', icon: 'github' },
-        { title: 'GO TO GITHUB', href: 'https://github.com/leiax00', icon: 'github' },
-        { title: 'GO TO GITHUB', href: 'https://github.com/leiax00', icon: 'github' },
+        { title: 'GO TO GITHUB1', href: 'https://github.com/leiax00', icon: 'github' },
+        { title: 'GO TO GITHUB2', href: 'https://github.com/leiax00', icon: 'github' },
+        { title: 'GO TO GITHUB3', href: 'https://github.com/leiax00', icon: 'github' },
+        { title: 'GO TO GITHUB4', href: 'https://github.com/leiax00', icon: 'github' },
+        { title: 'GO TO GITHUB5', href: 'https://github.com/leiax00', icon: 'github' },
       ],
       motto: {
         text: '哪有顷刻之间的心灰意冷，有的，只是日积月累的看透罢了。',
