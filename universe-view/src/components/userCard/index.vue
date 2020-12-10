@@ -48,10 +48,10 @@
       </template>
     </div>
     <hr class="compact">
-    <div id="roll_motto" class="is-middle compact">
+    <div id="roll_motto" class="is-middle compact" @click="captureMotto">
       <strong>{{ motto.text }}</strong>
-      <p>{{ motto.from }}</p>
-      <p>{{ motto.author }}</p>
+      <p>{{ `来源 《${motto.from}》` }}</p>
+      <p>{{ `提供者-${motto.author}` }}</p>
     </div>
   </div>
 </template>
@@ -75,12 +75,17 @@ export default {
         { title: 'GO TO GITHUB4', href: 'https://github.com/leiax00', icon: 'github' },
         { title: 'GO TO GITHUB5', href: 'https://github.com/leiax00', icon: 'github' },
       ],
-      motto: {
-        text: '哪有顷刻之间的心灰意冷，有的，只是日积月累的看透罢了。',
-        from: '来源《觅楽-语录》',
-        author: '提供者-悟空',
-      },
+      motto: {},
     };
+  },
+  created() {
+    this.captureMotto();
+    setInterval(this.captureMotto, 5 * 60 * 1000);
+  },
+  methods: {
+    captureMotto: function() {
+      this.$store.dispatch('third_api/captureMotto').then(resp => { this.motto = resp; });
+    },
   },
 };
 </script>
