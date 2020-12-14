@@ -57,13 +57,11 @@
 </template>
 
 <script>
-import UvIcon from '@/components/icon';
+
+import bus from '@/prop/util';
 
 export default {
   name: 'UserCard',
-  components: {
-    UvIcon,
-  },
   data: function() {
     // todo: mock数据需要更改为接口
     return {
@@ -79,8 +77,7 @@ export default {
     };
   },
   created() {
-    this.captureMotto();
-    setInterval(this.captureMotto, 5 * 60 * 1000);
+    bus.setInterval(this.captureMotto, 5 * bus.timeConst.ONE_MINUTE);
   },
   methods: {
     captureMotto: function() {

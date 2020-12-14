@@ -27,11 +27,9 @@
 
 <script>
 import setting from '@/settings';
-import UvIcon from '@/components/icon';
 
 export default {
   name: 'UvHeader',
-  components: { UvIcon },
   data: function() {
     return {
       headers: setting.HEADER,

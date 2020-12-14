@@ -16,12 +16,10 @@
 </template>
 
 <script>
-import UvIcon from '@/components/icon/index';
 import { mapActions } from 'vuex';
 
 export default {
   name: 'UvBlogItem',
-  components: { UvIcon },
   props: {
     model: {
       type: Object,

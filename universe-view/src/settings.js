@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Universe-View',
-  svg_js: '//at.alicdn.com/t/font_2015893_5aacmi31jbp.js',
+  first_run: '2020-12-12T12:12:12', // yyyy-MM-ddTHH:mm:ss.SSS
+  svg_js: '//at.alicdn.com/t/font_2015893_ndnkvb1p35c.js',
   theme: {
     night: {
       title: 'Night Mode',

@@ -71,7 +71,7 @@ export default {
   }
 
   .layout_main {
-      height: 800px;
+      /*height: 800px;*/
   }
 
   .layout_footer {
