@@ -52,7 +52,7 @@ export default {
       const self = this;
       bus.setInterval(function target() {
         const diff = bus.calcTimeDiff(setting.first_run);
-        self.run_info = `本站自 ${setting.first_run.split(/t/ig)[0]} 已运行 ${diff.day} 天 ${diff.hour}  小时 ${diff.minute}  分 ${diff.second}  秒!`;
+        self.run_info = `本站自 ${setting.first_run.split(/[\vt]/ig)[0]} 已运行 ${diff.day} 天 ${diff.hour}  小时 ${diff.minute}  分 ${diff.second}  秒!`;
       }, bus.timeConst.ONE_SECOND);
     },
   },
