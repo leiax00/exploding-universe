@@ -3,8 +3,8 @@ const state = {
 };
 
 const mutations = {
-  SET_SIDE_SHOW: (state, isShow) => {
-    state.showSide = isShow;
+  CHANGE_SIDE_SHOW: (state) => {
+    state.showSide = !state.showSide;
   },
 };
 

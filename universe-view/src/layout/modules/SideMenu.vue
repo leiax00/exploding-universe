@@ -51,7 +51,6 @@ export default {
   mounted() {
     const that = this;
     document.onkeydown = function(e) {
-      console.log(e.key);
       const curTime = moment().valueOf();
       if (curTime - that.hotKey.prevPressTime > that.hotKey.step) {
         that.hotKey.prevPressTime = curTime;
@@ -60,7 +59,7 @@ export default {
       }
       that.hotKey.srcKey += e.key;
       if (that.hotKey.srcKey === that.hotKey.dstKey) {
-        that.$store.commit('ui_ctl/SET_SIDE_SHOW', true);
+        that.$store.commit('ui_ctl/CHANGE_SIDE_SHOW');
       }
     };
   },
