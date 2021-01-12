@@ -1,5 +1,6 @@
 import moment from 'moment';
 import Vue from 'vue';
+import * as settings from '@/settings';
 
 const bus = new Vue();
 
@@ -48,4 +49,12 @@ bus.clearInterval = function(timer) {
   if (timer) {
     clearInterval(timer);
   }
+};
+
+bus.title = settings.title || 'Universe-View';
+bus.getPageTitle = function(pageTitle) {
+  if (pageTitle) {
+    return `${pageTitle} - ${bus.title}`;
+  }
+  return `${bus.title}`;
 };
