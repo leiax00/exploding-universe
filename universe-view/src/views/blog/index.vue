@@ -1,7 +1,9 @@
 <template>
   <div id="blog_content">
-    <uv-blog-detail v-if="showDetail" />
-    <uv-blog-list v-else />
+    <transition name="el-zoom-in-center">
+      <uv-blog-detail v-if="showDetail" />
+      <uv-blog-list v-else />
+    </transition>
   </div>
 </template>
 
