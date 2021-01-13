@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     handleClose: function() {
-      this.$store.commit('ui_ctl/SET_SIDE_SHOW', false);
+      this.$store.commit('ui_ctl/CHANGE_SIDE_SHOW', false);
     },
     handleOperate: function(route) {
       this.$router.push(route);
