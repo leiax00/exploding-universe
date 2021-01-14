@@ -32,4 +32,19 @@ export const constantRoutes = [
   { path: '*', name: '404', redirect: '/404' },
 ];
 
-export const asyncRoutes = [];
+export const asyncRoutes = [
+  {
+    path: '/',
+    name: 'Home',
+    redirect: '/index',
+    component: UvLayout,
+    children: [
+      {
+        path: '/md',
+        name: 'md-editor',
+        component: () => import(/* webpackChunkName: "error" */ '@/views/md-edit'),
+      },
+    ],
+  },
+
+];

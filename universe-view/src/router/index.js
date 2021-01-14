@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProcess from 'nprogress';
 import 'nprogress/nprogress.css';
-import { constantRoutes } from '@/router/ConstRouter';
+import { asyncRoutes, constantRoutes } from '@/router/ConstRouter';
 import bus from '@/prop/util';
 
 Vue.use(VueRouter);
@@ -14,11 +14,14 @@ const createRouter = () => new VueRouter({
 });
 
 const router = createRouter();
+
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
   const newRouter = createRouter();
   router.matcher = newRouter.matcher; // reset router
 }
+
+router.addRoutes(asyncRoutes);
 
 router.beforeEach(async(to, from, next) => {
   NProcess.start();

@@ -83,7 +83,7 @@ export default {
       width: 250px;
       height: 300px;
       bottom: 0;
-      z-index: 1;
+      z-index: 10000;
       right: 0.75rem;
       transition: all 0.3s ease-in-out 0s;
   }
