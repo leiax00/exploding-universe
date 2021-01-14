@@ -1,7 +1,7 @@
 <template>
   <div id="layout">
     <section id="base_layout" class="app-wrapper">
-      <div v-if="showSide" id="layout_sider">
+      <div class="layout_side">
         <side-menu />
       </div>
       <div id="layout_header" :class="{'header-night': isNight}">
@@ -40,7 +40,6 @@ export default {
   },
   data() {
     return {
-      showSide: false,
       isNight: true,
     };
   },

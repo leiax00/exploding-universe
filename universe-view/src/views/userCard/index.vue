@@ -91,6 +91,10 @@ export default {
   @import "~@/styles/mixin.scss";
   @import "~@/styles/variables.scss";
 
+  #user_card {
+    @include padding-2-common(0)
+  }
+
   .level {
     align-items: center;
     justify-content: space-between;

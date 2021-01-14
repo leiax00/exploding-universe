@@ -35,7 +35,6 @@ export const constantRoutes = [
 export const asyncRoutes = [
   {
     path: '/',
-    name: 'Home',
     redirect: '/index',
     component: UvLayout,
     children: [

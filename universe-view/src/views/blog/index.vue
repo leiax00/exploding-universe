@@ -49,27 +49,33 @@ export default {
   }
 
   .blog_content {
-    @include container;
+    display: flex;
     align-items: flex-start;
-
+    width: 100%;
     & .info_show {
       @include common_css;
-      width: 450px;
+      width: 22%;
       min-height: 400px;
     }
 
     & .main_show {
       @include common_css;
       @include margin-4-common($top: 0);
-      width: 100%;
+      flex: 2;
       min-height: 400px;
     }
 
     & .other_show {
       @include common_css;
-      width: 300px;
+      width: 18%;
       min-height: 400px;
       justify-content: flex-end;
     }
+  }
+
+  .operate_group {
+    @include padding-2-common(0, 0.5rem);
+    display: block;
+    width: 50px;
   }
 </style>
