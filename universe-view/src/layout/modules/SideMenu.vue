@@ -8,7 +8,7 @@
       :before-close="handleClose"
     >
       <div class="operate_group">
-        <el-button type="primary" icon="el-icon-edit" circle @click="handleOperate('/md')" />
+        <el-button type="primary" icon="el-icon-edit" circle @click="handleOperate({name:'md-editor', params: {to: 'home'}})" />
         <el-button type="primary" icon="el-icon-edit" circle />
       </div>
     </el-drawer>
@@ -57,14 +57,16 @@ export default {
     handleClose: function() {
       this.$store.commit('ui_ctl/SET_SIDE_SHOW', false);
     },
-    handleOperate: function(url) {
-      this.$router.push(url);
+    handleOperate: function(route) {
+      this.$router.push(route);
       this.handleClose();
     },
   },
 };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  ::v-deep .el-drawer {
+    background-color: #d4c8ff;
+  }
 </style>

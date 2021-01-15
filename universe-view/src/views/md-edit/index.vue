@@ -28,10 +28,6 @@ export default {
   name: 'MdEdit',
   components: { mavonEditor },
   props: {
-    prevRouter: {
-      type: String,
-      default: '/index',
-    },
   },
   data: function() {
     return {
@@ -43,7 +39,7 @@ export default {
   },
   methods: {
     returnPrev: function() {
-      this.$router.push(this.prevRouter);
+      this.$router.push({ name: this.$route.params.to || 'home' });
     },
   },
 };
