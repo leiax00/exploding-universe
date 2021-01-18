@@ -1,0 +1,55 @@
+# mysql + redis + kafka + elasticsearch
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: BC
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: base-compose
+  namespace: BC
+spec:
+  selector:
+    matchLabels:
+      app: base-component
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: base-component
+    spec:
+      containers:
+        - name: mysql
+          image: nginx:1.7.9
+          ports:
+            - containerPort: 3306
+        - name: redis
+            image: nginx:1.7.9
+            ports:
+              - containerPort: 6379
+        - name: kafka
+            image: nginx:1.7.9
+            ports:
+              - containerPort: 9200
+        - name: elasticsearch
+            image: nginx:1.7.9
+            ports:
+              - containerPort: 8080
+        - name: openresty
+            image: openresty/openresty:1.19.3.1-2-alpine
+            ports:
+              - containerPort: 80
+            volumeMounts:
+              - mountPath: "/usr/share/nginx/html"
+                name: openresty-vol
+      volumes:
+        - name: openresty-vol
+          emptyDir: {}
+        - name: redis-vol
+          hostPath:
+            path: "/var/data"
+
