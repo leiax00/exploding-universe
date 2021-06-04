@@ -7,7 +7,7 @@
       <div id="uv-copyright">
         <div>
           <uv-icon icon-class="copyright" />
-          <span class="footer-text">{{ copyright }}</span>
+          <span class="footer-text">{{ `${new Date().getFullYear()} ${copyright}` }}</span>
         </div>
         <div>
           <uv-icon icon-class="copyright" />
@@ -38,7 +38,7 @@ export default {
   name: 'UvFooter',
   data: function() {
     return {
-      copyright: '2020 Lei.AoX Powered by JcTec',
+      copyright: 'Lei.AoX Powered by JcTec',
       self_copyright: '版权说明：[本网站所有内容均收集于互联网或自己创作,方便于网友与自己学习交流，如有侵权，请留言，立即处理]',
       run_info: '',
       thanks: '感谢小伙伴的光临!',
@@ -67,10 +67,13 @@ export default {
     font-size: 12px;
   }
 
-  .uv-footer-logo a {
-    display: flex;
-    align-items: center;
-    height: 1.75rem;
+  .uv-footer-logo {
+    width: 120px;
+    & a {
+      display: flex;
+      align-items: center;
+      height: 1.75rem;
+    }
   }
 
   .footer-text {

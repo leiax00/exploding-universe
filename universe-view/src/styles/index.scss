@@ -12,6 +12,19 @@ body {
   text-rendering: optimizeLegibility;
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+* {
+  cursor: url("~@/assets/imgs/pointer.png"),auto;
+  &:hover {
+    cursor: url("~@/assets/imgs/pointer.png"),auto;
+  }
+}
+
+.pointer-round:hover {
+  -webkit-transform:rotate(360deg);
+  transform:rotate(360deg);
+  -webkit-transition:-webkit-transform 1s linear;
+  transition:transform 1s linear;
+}
 
 .night {
   color: #c0c0c0 !important;
